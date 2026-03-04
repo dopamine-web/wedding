@@ -103,56 +103,57 @@ document.getElementById("rsvpForm").addEventListener("submit", submitForm);
 
 emailjs.init("ufqcKmIKs-CHJKUkw");
 
-// async function submitForm(event) {
-//   event.preventDefault();
+async function submitForm(event) {
+  event.preventDefault();
 
-//   const form = document.getElementById("rsvpForm");
-//   const btn = form.querySelector(".submit-btn");
+  const form = document.getElementById("rsvpForm");
+  const btn = form.querySelector(".submit-btn");
 
-//   const fullname = form.fullname.value.trim();
+  const fullname = form.fullname.value.trim();
 
-//   const attendValue = form.querySelector('input[name="attend"]:checked');
-//   if (!attendValue) {
-//     alert("Пожалуйста, подтвердите присутствие");
-//     return;
-//   }
+  const attendValue = form.querySelector('input[name="attend"]:checked');
+  if (!attendValue) {
+    alert("Пожалуйста, подтвердите присутствие");
+    return;
+  }
 
-//   const attendText =
-//     attendValue.value === "yes" ? "✅ Да, приду" : "😢 Не смогу прийти";
+  const attendText =
+    attendValue.value === "yes" ? "✅ Да, приду" : "😢 Не смогу прийти";
 
-//   const drinks = [];
+  const drinks = [];
 
-//   if (form.white_semi_sweet_wine.checked) drinks.push("Белое полусладкое вино");
-//   if (form.dry_red_wine.checked) drinks.push("Красное сухое вино");
-//   if (form.red_semi_sweet_wine.checked) drinks.push("Красное полусладкое вино");
-//   if (form.champagne.checked) drinks.push("Шампанское");
-//   if (form.strong_alcohol.checked) drinks.push("Крепкий алкоголь");
-//   if (form.drink_none.checked) drinks.push("Не буду пить алкоголь");
+  if (form.white_semi_sweet_wine.checked) drinks.push("Белое полусладкое вино");
+  if (form.dry_red_wine.checked) drinks.push("Красное сухое вино");
+  if (form.red_semi_sweet_wine.checked) drinks.push("Красное полусладкое вино");
+  if (form.champagne.checked) drinks.push("Шампанское");
+  if (form.strong_alcohol.checked) drinks.push("Крепкий алкоголь");
+  if (form.drink_none.checked) drinks.push("Не буду пить алкоголь");
 
-//   const otherCheck = document.getElementById("otherCheck");
-//   const otherInput = document.getElementById("otherInput");
+  const otherCheck = document.getElementById("otherCheck");
+  const otherInput = document.getElementById("otherInput");
 
-//   if (otherCheck.checked && otherInput.value.trim()) {
-//     drinks.push("Другое: " + otherInput.value.trim());
-//   }
+  if (otherCheck.checked && otherInput.value.trim()) {
+    drinks.push("Другое: " + otherInput.value.trim());
+  }
 
-//   btn.disabled = true;
-//   btn.textContent = "Отправляю...";
+  btn.disabled = true;
+  btn.textContent = "Отправляю...";
 
-//   try {
-//     await emailjs.send("service_c20sph6", "template_aarhut6", {
-//       fullname,
-//       attend: attendText,
-//       drinks: drinks.length ? drinks.join(", ") : "Не указано",
-//     });
+  try {
+    await emailjs.send("service_c20sph6", "template_aarhut6", {
+      fullname,
+      attend: attendText,
+      drinks: drinks.length ? drinks.join(", ") : "Не указано",
+    });
 
-//     btn.textContent = "Спасибо! Мы очень рады вас видеть! 🌸";
-//     form.reset();
-//   } catch (error) {
-//     btn.textContent = "❌ Ошибка, попробуй снова";
-//     btn.style.background = "#e53935";
-//     btn.disabled = false;
-//     console.error(error);
-//   }
-// }
+    btn.textContent = "Спасибо! Мы очень рады вас видеть! 🌸";
+    form.reset();
+  } catch (error) {
+    btn.textContent = "❌ Ошибка, попробуй снова";
+    btn.style.background = "#e53935";
+    btn.disabled = false;
+    console.error(error);
+  }
+}
+
 
