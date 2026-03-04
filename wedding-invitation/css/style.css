@@ -927,6 +927,7 @@ input[type="checkbox"]:focus {
 .frog-emoji-wrapper {
    margin-top: 24px;
    display: flex;
+    gap: 10px;
    justify-content: center;
 }
 .frog-emoji {
@@ -1025,3 +1026,4 @@ input[type="checkbox"]:focus {
   width: 500px;
   justify-self: center;
 }
+
